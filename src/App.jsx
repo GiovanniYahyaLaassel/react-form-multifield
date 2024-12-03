@@ -22,7 +22,7 @@ function App() {
       content: formData.content, 
       image: formData.image || "https://placehold.co/600x400", 
       category: formData.category,
-      tags: [], 
+      tags: formData.tags, 
       published: true, 
     };
 
