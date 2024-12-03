@@ -19,8 +19,9 @@ function App() {
     const newPost = {
       id: posts.length + 1, // Genero un ID  unico chw si basa sulla lunghezza dell'array 
       title: formData.title,
-      content: "Questo è un nuovo post aggiunto dall'utente.", 
+      content: formData.content, 
       image: formData.image || "https://placehold.co/600x400", 
+      category: formData.category,
       tags: [], 
       published: true, 
     };
@@ -38,7 +39,7 @@ function App() {
       <Header/>
 
       <AddPostForm addNewPost={addNewPost} />
-      
+
       <section className={styles.tagSection}>
         <h3>Lista dei Tag</h3>
         <div className={styles.tagList}>

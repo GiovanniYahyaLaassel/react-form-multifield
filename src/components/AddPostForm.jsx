@@ -4,6 +4,8 @@ function AddPostForm({ addNewPost }) {
     const [formData, setFormData] = useState({
         title: "",
         image: "",
+        content: "",
+        category: "",    
     });  //stato per tutti i campi del form , come uno oggetto vuoto 
 
     //funzione per gestire il cambiamento dell'input
@@ -22,7 +24,7 @@ function AddPostForm({ addNewPost }) {
 
         if (formData.title.trim() !== "") { // rimuovo gli spazi bianchi nella stringa 
             addNewPost(formData); //passo l'intero oggetto
-            setFormData({title: "", image: "" }); // resetto  tutti i campi
+            setFormData({title: "", image: "", content: "", category: ""}); // resetto  tutti i campi
         }
     }
 
@@ -43,6 +45,32 @@ function AddPostForm({ addNewPost }) {
             onChange={handleInputChange}
             placeholder="Inserisci il link dell'immagine"
             />
+
+            <textarea 
+            name="content"
+            value={formData.content }
+            onChange={handleInputChange}
+            placeholder="Inserisci il contenuto del post"
+            />
+
+            <select
+            name="category"
+            value={formData.category}
+            onChange={handleInputChange}
+            >
+            
+            <option value="" disabled>
+                Seleziona una categoria
+            </option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">Javascript</option>
+            <option value="react">React</option>
+            <option value="node">Node.js</option>
+
+
+
+            </select>
 
             <button type="submit">Aggiungi Post</button>
         </form>
